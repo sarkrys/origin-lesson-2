@@ -10,16 +10,20 @@ public:
 
     Counter(int initialNum) : num(initialNum) {}
 
-    int increment() {
-        return ++num;
+    void setNum(int value) {
+        num = value;
     }
 
-    int decrement() {
-        return --num;
+    void increment() {
+        num++;
+    }
+
+    void decrement() {
+        num--;
     }
 
     void printValue() {
-        std::cout << num << std::endl;
+        std::cout << "Текущее значение: " << num << std::endl;
     }
 };
 
@@ -27,16 +31,16 @@ int main() {
     setlocale(LC_ALL, "RU");
 
     std::cout << "Хотите указать начальное значение счетчика? Введите 'yes' или 'no': ";
-    std::string numcount;
-    std::cin >> numcount;
+    std::string response;
+    std::cin >> response;
 
     Counter mynum;
 
-    if (numcount == "yes") {
+    if (response == "yes") {
         int initialValue;
         std::cout << "Введите начальное значение счетчика: ";
         std::cin >> initialValue;
-        mynum = Counter(initialValue);
+        mynum.setNum(initialValue);
     }
 
     std::string command = "";
